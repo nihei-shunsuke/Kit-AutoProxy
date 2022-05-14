@@ -21,9 +21,6 @@ function deleteproxy(){
     git config --global --unset http.proxy http://wwwproxy.kanazawa-it.ac.jp:8080/
     git config --global --unset https.proxy http://wwwproxy.kanazawa-it.ac.jp:8080/
 }
-function statusproxy(){
-    git config --global https.proxy
-}
 
 function autoproxy(){
 	#node以降はproxy.jsがあるパスを書く
