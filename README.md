@@ -14,16 +14,12 @@ function setproxy(){
     echo "set Proxt"
     git config --global http.proxy http://wwwproxy.kanazawa-it.ac.jp:8080/
     git config --global https.proxy http://wwwproxy.kanazawa-it.ac.jp:8080/
-    npm config --global set proxy http://wwwproxy.kanazawa-it.ac.jp:8080/
-    npm config --global set https-proxy http://wwwproxy.kanazawa-it.ac.jp:8080/
 }
 
 function deleteproxy(){
     echo "delete Proxt"
     git config --global --unset http.proxy http://wwwproxy.kanazawa-it.ac.jp:8080/
     git config --global --unset https.proxy http://wwwproxy.kanazawa-it.ac.jp:8080/
-    npm config -g delete proxy
-    npm config -g delete https-proxy
 }
 function statusproxy(){
     git config --global https.proxy
