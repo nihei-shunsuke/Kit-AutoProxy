@@ -11,16 +11,17 @@
 ```open ~/.zshrc ```で.zshcrファイルを開く
 ```
 function setproxy(){
-    echo "set Proxt"
-    git config --global http.proxy http://wwwproxy.kanazawa-it.ac.jp:8080/
-    git config --global https.proxy http://wwwproxy.kanazawa-it.ac.jp:8080/
+    	echo "set Proxy"
+    	export http_proxy=http://wwwproxy.kanazawa-it.ac.jp:8080/
+	export https_proxy=http://wwwproxy.kanazawa-it.ac.jp:8080/
 }
 
-function deleteproxy(){
-    echo "delete Proxt"
-    git config --global --unset http.proxy http://wwwproxy.kanazawa-it.ac.jp:8080/
-    git config --global --unset https.proxy http://wwwproxy.kanazawa-it.ac.jp:8080/
+function unsetproxy(){
+    	echo "delete Proxy"
+    	export http_proxy=
+	export https_proxy=
 }
+
 
 function autoproxy(){
 	#node以降はproxy.jsがあるパスを書く
