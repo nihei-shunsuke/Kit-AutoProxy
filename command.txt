@@ -1,0 +1,13 @@
+git config --global http.proxy http://wwwproxy.kanazawa-it.ac.jp:8080/
+git config --global https.proxy http://wwwproxy.kanazawa-it.ac.jp:8080/
+npm config --global set proxy http://wwwproxy.kanazawa-it.ac.jp:8080/
+npm config --global set https-proxy http://wwwproxy.kanazawa-it.ac.jp:8080/
+npm config --global set registry http://registry.npmjs.org/
+
+
+
+git config --global --unset http.proxy http://wwwproxy.kanazawa-it.ac.jp:8080/
+git config --global --unset https.proxy http://wwwproxy.kanazawa-it.ac.jp:8080/
+npm config --global delete proxy
+npm config --global delete https-proxy
+npm config --global delete registry
