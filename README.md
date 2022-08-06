@@ -25,7 +25,7 @@ function unsetproxy(){
 
 function autoproxy(){
 	#node以降はproxy.jsがあるパスを書く
-    if node ~/bin/proxy.js; then setproxy;else deleteproxy; fi
+    if node ~/bin/proxy.js; then setproxy;else unsetproxy; fi
 }
 
 autoproxy
