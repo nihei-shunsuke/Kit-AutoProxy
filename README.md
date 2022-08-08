@@ -11,14 +11,14 @@
 ```open ~/.zshrc ```で.zshcrファイルを開く
 ```
 function setproxy(){
-    	echo "set Proxy"
-    	export http_proxy=http://wwwproxy.kanazawa-it.ac.jp:8080/
+    echo "set proxy"
+    export http_proxy=http://wwwproxy.kanazawa-it.ac.jp:8080/
 	export https_proxy=http://wwwproxy.kanazawa-it.ac.jp:8080/
 }
 
 function unsetproxy(){
-    	echo "delete Proxy"
-    	export http_proxy=
+    echo "unset proxy"
+    export http_proxy=
 	export https_proxy=
 }
 

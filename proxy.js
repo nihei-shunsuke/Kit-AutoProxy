@@ -28,7 +28,7 @@ function myIpAddress() {
   }
   let address = ifacesObj.ipv4[0]?.address
   if (ifacesObj.ipv4.length >= 2){
-    address = ifacesObj.ipv4.filter(v=>v.name.startsWith("utun"))?.[0].address
+    address = ifacesObj.ipv4.filter(v=>v.name.startsWith("utun"))[0]?.address
   }
 
   return address;
