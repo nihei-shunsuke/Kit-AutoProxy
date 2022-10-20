@@ -8,7 +8,7 @@
 
 ## 使い方
 **Zshがインストールされていることを前提としています**
-```open ~/.zshrc ```で.zshcrファイルを開く
+```open ~/.zshrc ```で.zshrcファイルを開く
 ```
 function setproxy(){
     echo "set proxy"
