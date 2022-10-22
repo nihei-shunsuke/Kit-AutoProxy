@@ -1,4 +1,4 @@
-# Kit-AutProxy
+# Kit-AutoProxy
 ## 概要
 金沢工業大学のWi-Fiを利用して開発をしていると
 - プロキシが邪魔をしてgitコマンドが打てない！！
