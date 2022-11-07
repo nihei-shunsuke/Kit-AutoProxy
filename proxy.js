@@ -1,9 +1,3 @@
-// ------------------------------------------------------------- //
-//                                                               //
-//    Automatic Proxy Configuration in KIT KTC and eagle-net     //
-//                                               mod. 2019.11.25 //
-// ------------------------------------------------------------- //
-
 var os = require("os");
 
 function myIpAddress() {
@@ -38,7 +32,6 @@ function FindProxyForURL(url, host) {
   if (host == null || myIpAddress() == null) {
     return "DIRECT";
   }
-  // where am i ???  under private broadband router????
   if (isInNet(myIpAddress(), "192.168.0.0", "255.255.255.0")) return "DIRECT";
   if (isInNet(myIpAddress(), "192.168.1.0", "255.255.255.0")) return "DIRECT";
   if (isInNet(myIpAddress(), "192.168.11.0", "255.255.255.0")) return "DIRECT";
@@ -46,12 +39,10 @@ function FindProxyForURL(url, host) {
   if (isInNet(myIpAddress(), "192.168.24.0", "255.255.255.0")) return "DIRECT";
   if (isInNet(myIpAddress(), "192.168.255.0", "255.255.255.0")) return "DIRECT";
 
-  // I am in eagle-net ....
   if (isInNet(myIpAddress(), "172.26.0.0", "255.255.0.0")) return "DIRECT";
   if (isInNet(myIpAddress(), "172.27.0.0", "255.255.0.0")) return "DIRECT";
   if (isInNet(myIpAddress(), "172.31.0.0", "255.255.0.0")) return "DIRECT";
 
-  // I am in ikenodaira to 61segment
   if (
     isInNet(myIpAddress(), "172.30.192.0", "255.255.252.0") &&
     isInNet(host, "61.120.101.0", "255.255.255.0")
@@ -59,7 +50,6 @@ function FindProxyForURL(url, host) {
     return "PROXY wwwproxy-a10.kanazawa-it.ac.jp:8080";
   }
 
-  // where am i ???  in known zone ???
   if (
     isInNet(myIpAddress(), "202.13.160.0", "255.255.240.0") /* KIT */ ||
     isInNet(myIpAddress(), "202.223.148.0", "255.255.254.0") /* KTC */ ||
@@ -69,21 +59,15 @@ function FindProxyForURL(url, host) {
     isInNet(myIpAddress(), "192.168.0.0", "255.255.0.0") /* prv */ ||
     isInNet(myIpAddress(), "169.254.0.0", "255.255.0.0") /* prv */
   ) {
-    // I am in KIT/KTC zone....
 
-    //   connect to me ??
     if (host == "127.0.0.1" || host == "localhost") return "DIRECT";
 
-    ////////  Special settings ////////////////
-    //  busmgt.ihc.kanazawa-it.ac.jp (HTNet) closed:2018/03/31
-    // if ( shExpMatch(host, "busmgt.ihc.kanazawa-it.ac.jp" ) )   return "PROXY wwwproxy-a10.kanazawa-it.ac.jp:8080";
+    //return "PROXY wwwproxy-a10.kanazawa-it.ac.jp:8080";
     if (shExpMatch(host, "manaba.ict-kanazawa.ac.jp"))
       return "PROXY wwwproxy-a10.kanazawa-it.ac.jp:8080";
-    //  linkit.kanazawa-it.ac.jp 2020/03/17
     if (shExpMatch(host, "linkit.kanazawa-it.ac.jp"))
       return "PROXY wwwproxy-a10.kanazawa-it.ac.jp:8080";
 
-    //   target is local domain.  use DIRECT connection
     if (shExpMatch(host, "*.kanazawa-it.ac.jp")) return "DIRECT";
     if (shExpMatch(host, "*.ict-kanazawa.ac.jp")) return "DIRECT";
     if (shExpMatch(host, "*.kanazawa-tc.ac.jp")) return "DIRECT";
@@ -102,11 +86,9 @@ function FindProxyForURL(url, host) {
     if (shExpMatch(host, "192.168.*")) return "DIRECT";
     if (shExpMatch(host, "iogate2")) return "DIRECT";
 
-    //  I am in KIT/KTC zone...
     return "PROXY wwwproxy-a10.kanazawa-it.ac.jp:8080";
   }
 
-  // I am not in KIT/KTC  zone...
   return "DIRECT";
 }
 
@@ -135,8 +117,7 @@ function dateRange() {
 
   if (isGMT) {
     argc--;
-  }
-  // function will work even without explict handling of this case
+  
   if (argc == 1) {
     var tmp = parseInt(arguments[0]);
     if (isNaN(tmp)) {
